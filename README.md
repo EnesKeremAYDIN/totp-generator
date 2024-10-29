@@ -27,7 +27,7 @@ A simple web-based TOTP (Time-based One-Time Password) generator, ideal for gene
 
 ## Requirements
 
-- Aweb browser with JavaScript enabled.
+- A web browser with JavaScript enabled.
 
 ## Disclaimer
 
