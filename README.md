@@ -12,7 +12,7 @@ A simple web-based TOTP (Time-based One-Time Password) generator, ideal for gene
 
 1. **Clone or Download** the repository:
    ```bash
-   git clone https://github.com/yourusername/totp-generator.git
+   git clone https://github.com/EnesKeremAYDIN/totp-generator.git
    cd totp-generator
    ```
 
