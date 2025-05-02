@@ -48,24 +48,54 @@ function leftpad(str, len, pad) {
 }
 
 const generateBtn = document.getElementById("generate-btn");
+const changeKeyBtn = document.getElementById("change-key-btn");
 const totpKeyInput = document.getElementById("totp-key");
 const totpDisplay = document.getElementById("totp-display");
 const inputSection = document.getElementById("input-section");
 const totpCodeElement = document.getElementById("totp-code");
 const timeLeftElement = document.getElementById("time-left");
+const currentKeyElement = document.getElementById("current-key");
 
 let totpKey = "";
 let interval;
 
-generateBtn.addEventListener("click", () => {
-    totpKey = totpKeyInput.value.trim();
+function startTOTPGeneration() {
     if (totpKey) {
         inputSection.style.display = "none";
         totpDisplay.style.display = "block";
+        currentKeyElement.textContent = totpKey;
         updateTOTP();
+        if (interval) {
+            clearInterval(interval);
+        }
         interval = setInterval(updateTOTP, 1000);
+        
+        const url = new URL(window.location);
+        url.searchParams.set('key', totpKey);
+        window.history.replaceState({}, '', url);
     }
+}
+
+function resetToKeyInput() {
+    if (interval) {
+        clearInterval(interval);
+    }
+    totpDisplay.style.display = "none";
+    inputSection.style.display = "block";
+    totpKeyInput.value = "";
+    totpKey = "";
+    
+    const url = new URL(window.location);
+    url.searchParams.delete('key');
+    window.history.replaceState({}, '', url);
+}
+
+generateBtn.addEventListener("click", () => {
+    totpKey = totpKeyInput.value.trim();
+    startTOTPGeneration();
 });
+
+changeKeyBtn.addEventListener("click", resetToKeyInput);
 
 function updateTOTP() {
     const epoch = Math.floor(new Date().getTime() / 1000.0);
@@ -76,3 +106,14 @@ function updateTOTP() {
     const code = generateTOTP(totpKey);
     totpCodeElement.textContent = code;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const keyFromURL = urlParams.get('key');
+    
+    if (keyFromURL) {
+        totpKey = keyFromURL;
+        totpKeyInput.value = totpKey;
+        startTOTPGeneration();
+    }
+});

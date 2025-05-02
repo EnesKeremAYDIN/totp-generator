@@ -5,84 +5,184 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0a0a0a;
+    color: #e5e5e5;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 2rem 1rem;
+    line-height: 1.5;
 }
 
 .container {
-    text-align: center;
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: #161616;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    margin-bottom: 4rem;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #00b4d8, #0077b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+#input-section {
+    margin-bottom: 1.5rem;
 }
 
 #input-section input {
-    padding: 10px;
-    width: 250px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    margin-right: 10px;
-    background-color: #333;
-    color: #fff;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #2d2d2d;
+    background-color: #1e1e1e;
+    color: #e5e5e5;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
 }
 
-#input-section button {
-    padding: 10px 20px;
-    font-size: 16px;
+#input-section input:focus {
+    outline: none;
+    border-color: #00b4d8;
+}
+
+#input-section input::placeholder {
+    color: #666;
+}
+
+.button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
     border: none;
-    border-radius: 5px;
-    background-color: #6200ea;
+    border-radius: 8px;
+    background-color: #00b4d8;
     color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: 100%;
+    margin: 0.5rem 0;
 }
 
-#input-section button:hover {
-    background-color: #3700b3;
+.button:hover {
+    background-color: #0077b6;
+    transform: translateY(-1px);
+}
+
+#totp-display {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border: 1px solid #2d2d2d;
 }
 
 #totp-display h2 {
-    font-size: 48px;
-    margin: 20px 0;
+    font-size: 3rem;
+    margin: 1rem 0;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 2px;
+    color: #00b4d8;
+    text-align: center;
 }
 
 #totp-display p {
-    font-size: 18px;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #e5e5e5;
+    text-align: center;
 }
 
 #totp-code {
-    color: #bb86fc;
+    color: #00b4d8;
 }
 
 #time-left {
-    color: #03dac6;
+    color: #00b4d8;
+    font-weight: bold;
+}
+
+.key-display {
+    font-size: 0.9rem;
+    color: #e5e5e5;
+    word-break: break-all;
+}
+
+#change-key-btn {
+    background-color: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    color: #e5e5e5;
+}
+
+#change-key-btn:hover {
+    background-color: #2d2d2d;
+    border-color: #00b4d8;
 }
 
 .footer {
     text-align: center;
-    color: #ffffff;
+    color: #666;
+    padding: 1rem;
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: #0a0a0a;
 }
 
 .footer a {
-    color: #3B82F6;
+    color: #00b4d8;
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
 .footer a:hover {
+    color: #0077b6;
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    #totp-display {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    #totp-display {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    #totp-display h2 {
+        font-size: 2.5rem;
+    }
 }

@@ -7,6 +7,7 @@ A simple web-based TOTP (Time-based One-Time Password) generator, ideal for gene
 - Generates TOTP codes based on a shared secret and current time.
 - Built with a minimal, user-friendly interface using HTML, CSS, and JavaScript.
 - No backend dependencies – runs entirely in the browser.
+- Direct key access via URL parameter (e.g., `?key=YOURKEY`).
 
 ## Installation and Usage
 
@@ -18,6 +19,7 @@ A simple web-based TOTP (Time-based One-Time Password) generator, ideal for gene
 
 2. **Run the Application**:
    - Open `index.html` in a web browser to access the TOTP generator.
+   - You can directly access with a key using URL parameter: `?key=YOURKEY`
 
 ## Files
 
@@ -28,6 +30,12 @@ A simple web-based TOTP (Time-based One-Time Password) generator, ideal for gene
 ## Requirements
 
 - A web browser with JavaScript enabled.
+
+## URL Parameters
+
+The application supports the following URL parameter:
+- `key`: TOTP secret key (e.g., `?key=ABCDEF123456`)
+- When a key is provided in the URL, the application will automatically start generating TOTP codes.
 
 ## Disclaimer
 

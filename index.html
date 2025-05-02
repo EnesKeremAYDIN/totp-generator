@@ -12,11 +12,15 @@
         <h1>TOTP Generator</h1>
         <div id="input-section">
             <input type="text" id="totp-key" placeholder="Enter TOTP Key" />
-            <button id="generate-btn">Generate</button>
+            <button id="generate-btn" class="button">Generate</button>
         </div>
         <div id="totp-display" style="display:none;">
+            <div class="key-display">
+                <p>Current Key: <span id="current-key"></span></p>
+            </div>
             <h2 id="totp-code">000000</h2>
             <p>Time left: <span id="time-left">30</span> seconds</p>
+            <button id="change-key-btn" class="button">Change Key</button>
         </div>
     </div>
     <footer class="footer">
