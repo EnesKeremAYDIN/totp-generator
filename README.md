@@ -1,6 +1,6 @@
 # TOTP Generator
 
-A simple web-based TOTP (Time-based One-Time Password) generator, ideal for generating secure, time-based authentication codes for two-factor authentication (2FA) systems.
+Simple web-based TOTP (Time-based One-Time Password) generator, ideal for generating secure, time-based authentication codes for two-factor authentication (2FA) systems.
 
 ## Features
 
