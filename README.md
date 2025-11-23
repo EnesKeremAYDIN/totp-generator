@@ -36,4 +36,3 @@ Simple web-based TOTP (Time-based One-Time Password) generator, ideal for genera
 The application supports the following URL parameter:
 - `key`: TOTP secret key (e.g., `?key=ABCDEF123456`)
 - When a key is provided in the URL, the application will automatically start generating TOTP codes.
-- 
